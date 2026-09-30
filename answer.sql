@@ -1,0 +1,19 @@
+-- Setup (practice only)
+DROP DATABASE IF EXISTS salesDB;
+DROP USER IF EXISTS 'bob'@'localhost';
+CREATE DATABASE salesDB;
+USE salesDB;
+CREATE TABLE customers (id INT PRIMARY KEY, name VARCHAR(50), phone VARCHAR(20));
+CREATE INDEX idxPhone ON customers(phone);
+
+-- Question 1: Drop the index idxPhone from the customers table
+DROP INDEX idxPhone ON customers;
+
+-- Question 2: Create user bob, restricted to localhost
+CREATE USER 'bob'@'localhost' IDENTIFIED BY 'S$cu3r3!';
+
+-- Question 3: Grant INSERT privilege to bob on the salesDB database
+GRANT INSERT ON salesDB.* TO 'bob'@'localhost';
+
+-- Question 4: Change bob's password
+ALTER USER 'bob'@'localhost' IDENTIFIED BY 'P$55!23';
